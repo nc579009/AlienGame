@@ -75,16 +75,16 @@ class Game {
       this.retreatButton.addEventListener("click", () => this.handleRetreat());
     }
   
-    // log(message) {
-    //   const p = document.createElement("p");
-    //   p.textContent = message;
-    //   this.logElement.appendChild(p);
-    //   this.logElement.scrollTop = this.logElement.scrollHeight;
-    //}
+    log(message) {
+      const p = document.createElement("p");
+      p.textContent = message;
+      this.logElement.appendChild(p);
+      this.logElement.scrollTop = this.logElement.scrollHeight;
+    }
   
     handleAttack() {
       const alien = this.aliens[this.currentAlienIndex];
-      this.log("Player attacks!");
+      this.log("attack");
   
       if (this.player.attack(alien)) {
         this.log(`Player hits! Alien hull is now ${alien.hull}.`);
@@ -92,7 +92,7 @@ class Game {
           this.log(`Alien ship ${this.currentAlienIndex + 1} destroyed!`);
           this.currentAlienIndex++;
           if (this.currentAlienIndex === this.aliens.length) {
-            this.log("All alien ships destroyed! You win!");
+            this.log("You win!");
             this.endGame();
             return;
           }
